@@ -13,11 +13,12 @@ This project has developed with:
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [React](https://reactjs.org/docs/getting-started.html)
 - [Vite](https://vitejs.dev/guide/)
+- [Phosphor](https://phosphoricons.com/)
+
 <!-- - [TailwindCSS](https://v2.tailwindcss.com/docs)
 - [GraphCMS](https://graphcms.com/)
 - [Date-FNS](https://date-fns.org/docs/Getting-Started)
 - [GraphQL](https://graphql.org/)
-- [Phosphor](https://phosphoricons.com/)
 - [VimeJS](https://vimejs.com/) -->
 
 ## 🚀 How to execute

@@ -1,45 +1,56 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { Header } from "./components/Header";
+import { Post, IPost } from "./components/Post";
+import { Sidebar } from "./components/Sidebar";
+
+import styles from './styles/app.module.scss';
+
+const posts: IPost[] = [
+  {
+    author: {
+      avatarUrl: 'https://github.com/rcapeto.png',
+      name: 'Raphael Capeto',
+      role: 'Softaware Engineer'
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2022-07-06 20:00:00'),
+  },
+  {
+    author: {
+      avatarUrl: 'https://github.com/diego3g.png',
+      name: 'Diego Fernandes',
+      role: 'CTO @Rocketseat'
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2022-07-03 16:00:00'),
+  }
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  return(
+    <div>
+      <Header/>
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <div className={styles.wrapper}>
+        <Sidebar />
+
+        <main>
+          {
+            posts.map((post, index) => (
+              <Post {...post} key={String(index)} />
+            ))
+          }
+        </main>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

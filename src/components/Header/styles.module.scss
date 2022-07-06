@@ -1,0 +1,23 @@
+.header {
+   background-color: var(--gray-800);
+   height: 100px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 1.25rem 0;
+
+   img {
+      height: 2.5rem;
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+   }
+
+   p {
+      font-weight: bold;
+      margin-left: 1rem;
+      color: var(--white);
+      font-size: 1.25rem;
+   }
+}
