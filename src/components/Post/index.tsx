@@ -94,7 +94,15 @@ export const Post: FunctionComponent<IPost> = ({
          <div className={styles.commentList}>
             {
                comments.map((comment, index) => (
-                  <Comment key={String(index)} {...comment}/>
+                  <Comment 
+                     key={String(index)} 
+                     {...comment}
+                     handleDeleteComment={() => {
+                        const all_comments = [...comments];
+                        all_comments.splice(index, 1);
+                        setComments(all_comments);
+                     }}
+                  />
                ))
             }
          </div>

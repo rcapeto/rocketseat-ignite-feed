@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { ThumbsUp, Trash } from 'phosphor-react';
 
 import { Avatar } from '../Avatar';
@@ -12,16 +12,23 @@ export interface IComment {
    };
    publishedAt: Date;
    content: string;
+   handleDeleteComment?: () => void;
 };
 
 export const Comment: FunctionComponent<IComment> = ({
-   author, publishedAt, content
+   author, publishedAt, content, handleDeleteComment
 }) => {
+   const [like, setLike] = useState(0);
+
    const formatedDate = publishedAt.toLocaleDateString(navigator.language, {
       day: '2-digit',
       month: 'long',
       year: 'numeric',
    });
+
+   const handleLikeComment = () => {
+      setLike(state => state + 1);
+   };
 
    return(
       <div className={styles.comment}>
@@ -42,7 +49,7 @@ export const Comment: FunctionComponent<IComment> = ({
                      </time>
                   </div>
 
-                  <button title="Remover comentário">
+                  <button title="Remover comentário" onClick={handleDeleteComment}>
                      <Trash size={22}/>
                   </button>
                </header>
@@ -51,9 +58,9 @@ export const Comment: FunctionComponent<IComment> = ({
             </div>
 
             <footer>
-              <button>
+              <button onClick={handleLikeComment}>
                   <ThumbsUp />
-                  Aplaudir <span>20</span>
+                  Aplaudir <span>{like}</span>
               </button>
             </footer>
          </div>
